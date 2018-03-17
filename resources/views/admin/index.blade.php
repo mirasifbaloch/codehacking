@@ -1,7 +1,9 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Maestro
- * Date: 17/03/2018
- * Time: 3:49 PM
- */
+@extends('layouts.admin')
+
+@section('content')
+    <h1>Admin</h1>
+@stop
+
+@section('footer')
+
+@stop
