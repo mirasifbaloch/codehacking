@@ -23,6 +23,7 @@
        <th>Status</th>
        <th>Created</th>
        <th>Updated</th>
+       <th>Delete</th>
      </tr>
    </thead>
    <tbody>
@@ -31,12 +32,25 @@
      <tr>
        <td>{{$user->id}}</td>
        <td><img height="35" class="img-rounded" src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}}" alt=""></td>
-         <td><a href="{{route('admin.users.edit', $user->id)}}">{{$user->name}}</a></td>
+       <td><a href="{{route('admin.users.edit', $user->id)}}">{{$user->name}}</a></td>
        <td>{{$user->email}}</td>
        <td>{{$user->role ? $user->role->name : 'User has no Role'}}</td>
        <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>
        <td>{{$user->created_at}}</td>
        <td>{{$user->updated_at->diffForHumans()}}</td>
+       <td>
+
+
+           {!! Form::open(['method'=>'DELETE', 'action'=> ['AdminUsersController@destroy', $user->id]]) !!}
+
+           <div class="form-group">
+               {!! Form::submit('Delete User',['class'=>'btn btn-danger']) !!}
+           </div>
+
+           {!! Form::close() !!}
+
+       </td>
+
      </tr>
        @endforeach
    @endif
