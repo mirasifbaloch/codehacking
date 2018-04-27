@@ -28,11 +28,14 @@ Route::group(['middleware'=>'admin'], function(){
 
 
 
-//Route::resource('admin/users', 'AdminUsersController');
+    //Route::resource('admin/users', 'AdminUsersController');
     Route::name('admin')->resource('/admin/users', 'AdminUsersController');
 
-//Route::resource('admin/posts', 'AdminPostsController');
+    //Route::resource('admin/posts', 'AdminPostsController');
     Route::name('admin')->resource('/admin/posts', 'AdminPostsController');
+
+    //Route::resource('admin/categories', 'AdminCategoriesController');
+    Route::name('admin')->resource('/admin/categories', 'AdminCategoriesController');
 
 });
 
